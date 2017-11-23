@@ -616,7 +616,7 @@ Helpers.triggerLayout = function ($iframe) {
 
 /**
  *
- * @param $viewport
+ * @param viewport
  * @param spineItem
  * @param settings
  * @returns {boolean}
@@ -625,7 +625,8 @@ Helpers.triggerLayout = function ($iframe) {
 // Returns falsy and truthy
 // true and false mean that the synthetic-spread or single-page is "forced" (to be respected whatever the external conditions)
 // 1 and 0 mean that the synthetic-spread or single-page is "not forced" (is allowed to be overriden by external conditions, such as optimum column width / text line number of characters, etc.)
-Helpers.deduceSyntheticSpread = function ($viewport, spineItem, settings) {
+Helpers.deduceSyntheticSpread = function (viewport, spineItem, settings) {
+    var $viewport = $(viewport);
 
     if (!$viewport || $viewport.length == 0) {
         return 0; // non-forced
@@ -740,9 +741,10 @@ Helpers.loadTemplate.cache = {
 /**
  *
  * @param styles
- * @param $element
+ * @param element
  */
-Helpers.setStyles = function (styles, $element) {
+Helpers.setStyles = function (styles, element) {
+    var $element = $(element);
 
     var count = styles.length;
 
